@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/YellowKONT"
+    tools:context=".Login">
+
+    <ImageView
+        android:id="@+id/logoBanacash"
+        android:layout_width="308dp"
+        android:layout_height="310dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:src="@drawable/xbnn" />
+
+    <EditText
+        android:id="@+id/pinMasuk"
+        android:layout_width="250dp"
+        android:layout_height="38dp"
+        android:layout_below="@id/logoBanacash"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/rounded_edittext"
+        android:hint="PIN"/>
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_below="@id/pinMasuk"
+        android:layout_marginTop="80dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:textColor="#FFFF"
+        android:background="@drawable/rounded_button"/>
+
+</RelativeLayout>

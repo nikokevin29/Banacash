@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/YellowKONT"
+    tools:context=".MainMenu">
+
+    <TextView
+        android:id="@+id/titlemainmenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Main Menu"
+        android:textColor="#FFFF"
+        android:textSize="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"/>
+
+    <LinearLayout
+        android:id="@+id/atas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titlemainmenu"
+        android:layout_marginTop="36dp"
+        android:paddingHorizontal="30dp"
+        android:weightSum="2">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:textColor="#696969"
+                android:layout_height="wrap_content"
+                android:text="Products"/>
+
+            <ImageView
+                android:id="@+id/Kelola_produk"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:background="@drawable/rounded_button_100"
+                android:padding="15dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/icon_trolley" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:textColor="#696969"
+                android:layout_height="wrap_content"
+                android:text="Transaction"/>
+            <ImageView
+                android:id="@+id/Kelola_transaksi"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/rounded_button_100"
+                android:padding="25dp"
+                android:src="@drawable/icon_transaksi" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/atas"
+        android:paddingHorizontal="30dp"
+        android:weightSum="2">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:textColor="#696969"
+                android:layout_height="wrap_content"
+                android:text="Voucher"/>
+            <ImageView
+                android:id="@+id/Kelola_voucher"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:background="@drawable/rounded_button_100"
+                android:padding="30dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/icon_voucher" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:textColor="#696969"
+                android:layout_height="wrap_content"
+                android:text="Report"/>
+            <ImageView
+                android:id="@+id/Kelola_laporan"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/rounded_button_100"
+                android:padding="25dp"
+                android:src="@drawable/icon_report" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
