@@ -18,7 +18,7 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
-public interface APIInterface {
+public interface APInterface {
 
 
   @GET("/api/searchPin/{kode_pin}")
