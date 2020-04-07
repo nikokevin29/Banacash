@@ -21,8 +21,8 @@ import retrofit2.http.Path;
 public interface APIInterface {
 
 
-//  @GET("/api/searchPin/{pin}")
-//  Call<PinDAO> loginRequest(@Path("pin") int username);
+  @GET("/api/searchPin/{kode_pin}")
+  Call<PinDAO> loginRequest(@Path("kode_pin") int kode_pin);
 
     @POST("api/createPin")
     @FormUrlEncoded
