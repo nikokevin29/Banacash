@@ -5,7 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/popid"
     android:background="@drawable/rounded_transparent_50"
-    android:layout_centerInParent="true">
+    android:layout_centerInParent="true"
+    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true">
 
     <EditText
         android:id="@+id/etAddKode"
@@ -25,17 +27,5 @@
         android:hint="Percentage"
         android:background="@drawable/rounded_edittext"
         android:layout_margin="10dp"/>
-
-    <Button
-        android:id="@+id/btnSumbitAdd"
-        android:layout_below="@id/etAddPersentase"
-        android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_button"
-        android:layout_margin="20dp"
-        android:text="Submit"
-        android:textColor="#FFFFFF"/>
-
 
 </RelativeLayout>
