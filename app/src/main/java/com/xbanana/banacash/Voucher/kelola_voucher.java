@@ -1,26 +1,14 @@
 package com.xbanana.banacash.Voucher;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.constraintlayout.widget.Constraints;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.xbanana.banacash.API.APInterface;
@@ -38,7 +26,6 @@ import retrofit2.Response;
 public class kelola_voucher extends AppCompatActivity {
 
     private List<VoucherDAO> voucherList;
-    private adapter_row_voucher voucherAdapter;
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -70,20 +57,21 @@ public class kelola_voucher extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 openDialog();
+                mAdapter.notifyDataSetChanged();
             }
         });
 
     }
     public void openDialog(){
-        pop_up_voucher dialog = new pop_up_voucher();
-        dialog.show(getSupportFragmentManager(),"Creae Voucher");
+        pop_up_voucher_add dialog = new pop_up_voucher_add();
+        dialog.show(getSupportFragmentManager(),"Create Voucher");
     }
     public void showData(){
         APInterface apiService = ApiClient.getClient().create(APInterface.class);
         Call<List<VoucherDAO>> voucherDAOCall = apiService.showAllVoucher();
                 ProgressDialog progress = new ProgressDialog(this);
                 progress.setMessage("Fetching data");
-                progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+                progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
                 progress.setCancelable(false);
                 progress.show();
        voucherDAOCall.enqueue(new Callback<List<VoucherDAO>>() {

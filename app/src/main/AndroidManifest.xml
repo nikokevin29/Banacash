@@ -19,6 +19,7 @@
         <activity android:name=".kelola_laporan"></activity>
         <activity android:name=".kelola_transaksi" />
         <activity android:name=".Voucher.kelola_voucher" />
+        <activity android:name=".Voucher.edit_voucher" />
         <activity android:name=".kelola_produk" />
         <activity android:name=".MainMenu" />
         <activity android:name=".Login">

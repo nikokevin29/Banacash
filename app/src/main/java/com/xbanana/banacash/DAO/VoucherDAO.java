@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class VoucherDAO {
     @SerializedName("id")
-    int id;
+    String id;
     @SerializedName("kode")
     String kode;
     @SerializedName("diskon")
@@ -13,7 +13,6 @@ public class VoucherDAO {
     public String getKode() {
         return kode;
     }
-
     public void setKode(String kode) {
         this.kode = kode;
     }
@@ -25,15 +24,15 @@ public class VoucherDAO {
         this.diskon = diskon;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public VoucherDAO(int id, String kode, String diskon) {
+    public VoucherDAO(String id, String kode, String diskon) {
         this.id = id;
         this.kode = kode;
         this.diskon = diskon;

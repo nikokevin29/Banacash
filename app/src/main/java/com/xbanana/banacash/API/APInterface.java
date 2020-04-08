@@ -111,19 +111,16 @@ public interface APInterface {
 
     @GET("api/showVoucher/")
     Call<List<VoucherDAO>> showAllVoucher();
-
     @POST("api/createVoucher")
     @FormUrlEncoded
     Call<VoucherDAO> createVoucher (@Field("kode")String kode,
                                     @Field("diskon")String diskon);
-
     @PUT("api/updateVoucher/{id}")
     @FormUrlEncoded
-    Call<ProdukDAO> updateVoucher(@Path("id")int id,
+    Call<VoucherDAO> updateVoucher(@Path("id")String id,
                                   @Field("kode")String kode,
-                                  @Field("diskon")float diskon);
-
+                                  @Field("diskon")String diskon);
     @DELETE("api/deleteVoucher/{id}")
-    Call<Void> deleteVoucher(@Path("id")int id);
+    Call<Void> deleteVoucher(@Path("id") String id);
 
 }

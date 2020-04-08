@@ -2,6 +2,7 @@ package com.xbanana.banacash.Voucher;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,7 +12,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
 import com.xbanana.banacash.API.APInterface;
@@ -19,17 +19,14 @@ import com.xbanana.banacash.API.ApiClient;
 import com.xbanana.banacash.DAO.VoucherDAO;
 import com.xbanana.banacash.R;
 
-import java.security.PrivateKey;
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class pop_up_voucher extends AppCompatDialogFragment {
+public class pop_up_voucher_add extends AppCompatDialogFragment {
     private EditText kode,diskon;
-    private Button submit;
-
     @NonNull
     @Override
     public Dialog onCreateDialog( Bundle savedInstanceState) {
@@ -43,12 +40,12 @@ public class pop_up_voucher extends AppCompatDialogFragment {
         builder.setView(view).setTitle("Add New Voucher").setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
+            dialog.cancel();
             }
         }).setPositiveButton("Add", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                addData();
+               addData();
             }
         });
         return builder.create();
@@ -65,17 +62,16 @@ public class pop_up_voucher extends AppCompatDialogFragment {
                 callDAO.enqueue(new Callback<VoucherDAO>() {
                     @Override
                     public void onResponse(Call<VoucherDAO> call, Response<VoucherDAO> response) {
-                        Toast.makeText(getContext(), "Success Adding Data", Toast.LENGTH_SHORT).show();
+                       //Toast.makeText(getContext(), "Success Adding Data", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onFailure(Call<VoucherDAO> call, Throwable t) {
-                        Toast.makeText(getContext(), "Failed Enqueue", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Failed Enqueue", Toast.LENGTH_SHORT).show();
                         System.out.println("ERR_ADD" + t.getMessage());
                     }
                 });
             }
-
             @Override
             public void onFailure(Call<List<VoucherDAO>> call, Throwable t) {
                 System.out.println("gagal");
@@ -83,4 +79,6 @@ public class pop_up_voucher extends AppCompatDialogFragment {
             }
         });
     }
+
+
 }
