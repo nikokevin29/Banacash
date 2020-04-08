@@ -35,18 +35,18 @@ public interface APInterface {
     @POST("api/createProduct")
     @FormUrlEncoded
     Call<ProdukDAO> createProduct (@Field("nama")String nama,
-                                   @Field("stock")int stock,
-                                   @Field("harga") int harga);
+                                   @Field("stok")String stok,
+                                   @Field("harga")String harga);
 
     @PUT("api/updateProduct/{id}")
     @FormUrlEncoded
-    Call<ProdukDAO> updateProduct(@Path("id")int id,
+    Call<ProdukDAO> updateProduct(@Path("id")String id,
                                   @Field("nama")String nama,
-                                  @Field("stock")int stock,
-                                  @Field("harga") int harga);
+                                  @Field("stok")String stok,
+                                  @Field("harga")String harga);
 
     @DELETE("api/deleteProduct/{id}")
-    Call<Void> deleteProduct(@Path("id") String idukuran);
+    Call<Void> deleteProduct(@Path("id")String id);
 
     @GET("api/showTransaction/")
     Call<List<TransactionDAO>> showAllTransaction();

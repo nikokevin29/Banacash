@@ -7,8 +7,8 @@ public class ProdukDAO {
     int id;
     @SerializedName("nama")
     String nama;
-    @SerializedName("stock")
-    int stock;
+    @SerializedName("stok")
+    int stok;
     @SerializedName("harga")
     int harga;
 
@@ -21,11 +21,11 @@ public class ProdukDAO {
     }
 
     public int getStock() {
-        return stock;
+        return stok;
     }
 
-    public void setStock(int stock) {
-        this.stock = stock;
+    public void setStock(int stok) {
+        this.stok = stok;
     }
 
     public int getHarga() {
@@ -44,10 +44,10 @@ public class ProdukDAO {
         this.id = id;
     }
 
-    public ProdukDAO(int id, String nama, int stock, int harga) {
+    public ProdukDAO(int id, String nama, int stok, int harga) {
         this.id = id;
         this.nama = nama;
-        this.stock = stock;
+        this.stok = stok;
         this.harga = harga;
     }
 }
