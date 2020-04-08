@@ -8,7 +8,7 @@ public class VoucherDAO {
     @SerializedName("kode")
     String kode;
     @SerializedName("diskon")
-    float diskon;
+    String diskon;
 
     public String getKode() {
         return kode;
@@ -18,11 +18,10 @@ public class VoucherDAO {
         this.kode = kode;
     }
 
-    public float getDiskon() {
+    public String getDiskon() {
         return diskon;
     }
-
-    public void setDiskon(float diskon) {
+    public void setDiskon(String diskon) {
         this.diskon = diskon;
     }
 
@@ -34,7 +33,7 @@ public class VoucherDAO {
         this.id = id;
     }
 
-    public VoucherDAO(int id, String kode, float diskon) {
+    public VoucherDAO(int id, String kode, String diskon) {
         this.id = id;
         this.kode = kode;
         this.diskon = diskon;

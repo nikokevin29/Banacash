@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Banacash</string>
+    <string name="add_voucher">Add Voucher</string>
+    <string name="voucher">Voucher</string>
 </resources>

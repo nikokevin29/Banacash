@@ -33,7 +33,7 @@ public class MainMenu extends AppCompatActivity {
         kelola_voucher.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainMenu.this, kelola_voucher.class);
+                Intent i = new Intent(MainMenu.this, com.xbanana.banacash.Voucher.kelola_voucher.class);
                 startActivity(i);
             }
         });

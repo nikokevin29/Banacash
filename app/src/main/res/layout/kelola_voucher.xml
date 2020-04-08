@@ -5,13 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/YellowKONT"
-    tools:context=".kelola_voucher">
+    android:id="@+id/constraint"
+    tools:context=".Voucher.kelola_voucher">
 
     <TextView
         android:id="@+id/txtvoucher"
         android:layout_width="115dp"
         android:layout_height="50dp"
-        android:text="Voucher"
+        android:text="@string/voucher"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -33,23 +34,25 @@
         app:layout_constraintTop_toBottomOf="@+id/txtvoucher"
         app:layout_constraintVertical_bias="0.053">
 
-        <ListView
-            android:id="@+id/list_view_voucher"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_voucher"
+            android:scrollbars="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#EDC486" />
+            android:background="@drawable/rounded_button"/>
 
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnadd"
+        android:id="@+id/btnAddVoucher"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="10dp"
         android:textColor="#FFFFFF"
-        android:text="Add"
+        android:text="@string/add_voucher"
         android:textStyle="bold"
         android:textSize="16sp"
-        android:background="@drawable/button_nofill"
+        android:background="@drawable/rounded_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

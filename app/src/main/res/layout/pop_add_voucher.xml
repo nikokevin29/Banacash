@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/popid"
+    android:background="@drawable/rounded_transparent_50"
+    android:layout_centerInParent="true">
+
+    <EditText
+        android:id="@+id/etAddKode"
+        android:layout_width="250dp"
+        android:layout_height="30dp"
+        android:background="@drawable/rounded_edittext"
+        android:layout_centerHorizontal="true"
+        android:hint="Code"
+        android:layout_margin="10dp"/>
+    <EditText
+        android:id="@+id/etAddPersentase"
+        android:layout_below="@+id/etAddKode"
+        android:layout_width="250dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="30dp"
+        android:inputType="number"
+        android:hint="Percentage"
+        android:background="@drawable/rounded_edittext"
+        android:layout_margin="10dp"/>
+
+    <Button
+        android:id="@+id/btnSumbitAdd"
+        android:layout_below="@id/etAddPersentase"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_button"
+        android:layout_margin="20dp"
+        android:text="Submit"
+        android:textColor="#FFFFFF"/>
+
+
+</RelativeLayout>

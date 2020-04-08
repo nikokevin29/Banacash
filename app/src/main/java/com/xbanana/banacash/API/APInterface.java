@@ -115,7 +115,7 @@ public interface APInterface {
     @POST("api/createVoucher")
     @FormUrlEncoded
     Call<VoucherDAO> createVoucher (@Field("kode")String kode,
-                                    @Field("diskon")float diskon);
+                                    @Field("diskon")String diskon);
 
     @PUT("api/updateVoucher/{id}")
     @FormUrlEncoded
