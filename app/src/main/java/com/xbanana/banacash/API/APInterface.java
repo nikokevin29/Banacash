@@ -22,7 +22,7 @@ public interface APInterface {
 
 
   @GET("/api/searchPin/{kode_pin}")
-  Call<PinDAO> loginRequest(@Path("kode_pin") int kode_pin);
+  Call<PinDAO> loginRequest(@Path("kode_pin") String kode_pin);
 
     @POST("api/createPin")
     @FormUrlEncoded
