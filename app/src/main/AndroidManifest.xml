@@ -14,14 +14,15 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".kelola_laporan"></activity>
-        <activity android:name=".kelola_transaksi" />
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".Transaksi.adapter_row_input_produk_transaksi"></activity>
+        <activity android:name=".kelola_laporan" />
+        <activity android:name=".Transaksi.kelola_transaksi" />
         <activity android:name=".Voucher.kelola_voucher" />
         <activity android:name=".Voucher.edit_voucher" />
         <activity android:name=".Produk.kelola_produk" />
-        <activity android:name=".Produk.edit_produk"/>
+        <activity android:name=".Produk.edit_produk" />
         <activity android:name=".MainMenu" />
         <activity android:name=".Login">
             <intent-filter>

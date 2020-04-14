@@ -42,7 +42,7 @@ public class MainMenu extends AppCompatActivity {
         kelola_transaksi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainMenu.this, kelola_transaksi.class);
+                Intent i = new Intent(MainMenu.this, com.xbanana.banacash.Transaksi.kelola_transaksi.class);
                 startActivity(i);
             }
         });

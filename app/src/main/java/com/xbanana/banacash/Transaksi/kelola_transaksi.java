@@ -1,8 +1,10 @@
-package com.xbanana.banacash;
+package com.xbanana.banacash.Transaksi;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.xbanana.banacash.R;
 
 public class kelola_transaksi extends AppCompatActivity {
 

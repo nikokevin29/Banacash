@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/YellowKONT"
-    tools:context=".kelola_transaksi">
+    tools:context=".Transaksi.kelola_transaksi">
 
     <TextView
         android:id="@+id/txtmainmenu"
@@ -52,11 +52,12 @@
         app:layout_constraintTop_toBottomOf="@+id/txtaddproducts"
         app:layout_constraintVertical_bias="0.053">
 
-        <ListView
-            android:id="@+id/list_view_transaksi"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_transaksi"
+            android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#EDC486" />
+            android:background="@drawable/rounded_button" />
 
     </LinearLayout>
 
