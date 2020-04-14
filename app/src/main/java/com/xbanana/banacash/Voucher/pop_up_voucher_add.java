@@ -46,6 +46,8 @@ public class pop_up_voucher_add extends AppCompatDialogFragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                addData();
+               Toast.makeText(getActivity(),"Success Create Voucher Code",Toast.LENGTH_SHORT).show();
+               dialog.dismiss();
             }
         });
         return builder.create();
@@ -62,23 +64,17 @@ public class pop_up_voucher_add extends AppCompatDialogFragment {
                 callDAO.enqueue(new Callback<VoucherDAO>() {
                     @Override
                     public void onResponse(Call<VoucherDAO> call, Response<VoucherDAO> response) {
-                       //Toast.makeText(getContext(), "Success Adding Data", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onFailure(Call<VoucherDAO> call, Throwable t) {
-                        Toast.makeText(getActivity(), "Failed Enqueue", Toast.LENGTH_SHORT).show();
                         System.out.println("ERR_ADD" + t.getMessage());
                     }
                 });
             }
             @Override
             public void onFailure(Call<List<VoucherDAO>> call, Throwable t) {
-                System.out.println("gagal");
-                Toast.makeText(getActivity().getApplicationContext(), "Failed create Data", Toast.LENGTH_SHORT).show();
             }
         });
     }
-
-
 }

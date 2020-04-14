@@ -15,11 +15,6 @@ import com.xbanana.banacash.*;
 import com.xbanana.banacash.API.APInterface;
 import com.xbanana.banacash.API.ApiClient;
 import com.xbanana.banacash.DAO.VoucherDAO;
-
-
-
-
-
 public class edit_voucher extends AppCompatActivity {
     private EditText kode,diskon;
 

@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.xbanana.banacash.Produk.kelola_produk;
+
 public class MainMenu extends AppCompatActivity {
     ImageView kelola_produk,kelola_transaksi,kelola_voucher,kelola_laporan;
     @Override
@@ -26,7 +28,7 @@ public class MainMenu extends AppCompatActivity {
         kelola_produk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainMenu.this,kelola_produk.class);
+                Intent i = new Intent(MainMenu.this, com.xbanana.banacash.Produk.kelola_produk.class);
                 startActivity(i);
             }
         });

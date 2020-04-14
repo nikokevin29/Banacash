@@ -1,11 +1,10 @@
-package com.xbanana.banacash.Voucher;
+package com.xbanana.banacash.Produk;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,8 +17,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.xbanana.banacash.API.APInterface;
 import com.xbanana.banacash.API.ApiClient;
+import com.xbanana.banacash.DAO.ProdukDAO;
 import com.xbanana.banacash.DAO.VoucherDAO;
 import com.xbanana.banacash.R;
+import com.xbanana.banacash.Voucher.adapter_row_voucher;
+import com.xbanana.banacash.Voucher.edit_voucher;
 
 import java.util.List;
 
@@ -27,32 +29,33 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class adapter_row_voucher extends RecyclerView.Adapter<adapter_row_voucher.MyViewHolder> {
+public class adapter_row_produk extends RecyclerView.Adapter<adapter_row_produk.MyViewHolder> {
     private Context context;
-    private List<VoucherDAO> result;
+    private List<ProdukDAO> result;
 
-    public adapter_row_voucher(Context context, List<VoucherDAO> result){
+    public adapter_row_produk(Context context, List<ProdukDAO> result){
         this.context = context;
         this.result = result;
     }
 
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.row_voucher_layout,parent,false);
-        final MyViewHolder holder = new MyViewHolder(v);
+    public adapter_row_produk.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(context).inflate(R.layout.row_produk_layout,parent,false);
+        final adapter_row_produk.MyViewHolder holder = new adapter_row_produk.MyViewHolder(v);
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull adapter_row_voucher.MyViewHolder holder, int position) {
-        final VoucherDAO voucherDAO = result.get(position);
-        holder.kode.setText(voucherDAO.getKode());
-        holder.diskon.setText(voucherDAO.getDiskon());
+    public void onBindViewHolder(@NonNull adapter_row_produk.MyViewHolder holder, int position) {
+        final ProdukDAO pro = result.get(position);
+        holder.nama.setText(pro.getNama());
+        holder.stock.setText(Integer.toString(pro.getStock()));
+        holder.harga.setText(Integer.toString(pro.getHarga()));
         holder.parent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDialog(voucherDAO,position);
+                showDialog(pro,position);
             }
         });
     }
@@ -61,19 +64,20 @@ public class adapter_row_voucher extends RecyclerView.Adapter<adapter_row_vouche
         return result.size();
     }
     public class MyViewHolder extends RecyclerView.ViewHolder{
-        private TextView kode, diskon;
+        private TextView nama,stock,harga;
         private CardView parent;
 
         public MyViewHolder(@NonNull View itemView)
         {
             super(itemView);
-            kode = itemView.findViewById(R.id.kode);
-            diskon =  itemView.findViewById(R.id.diskon);
-            parent =  itemView.findViewById(R.id.parentVoucher);
+            nama =  itemView.findViewById(R.id.nama_produk);
+            stock = itemView.findViewById(R.id.stock_produk);
+            harga = itemView.findViewById(R.id.harga_produk);
+            parent = itemView.findViewById(R.id.parentProduk);
         }
     }
     @SuppressLint("PrivateResource")
-    private void showDialog(final VoucherDAO hasil, int position){
+    private void showDialog(final ProdukDAO hasil, int position){
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder .setTitle("Aksi apa yang akan anda lakukan?")
                 .setIcon(R.mipmap.ic_launcher)
@@ -85,7 +89,7 @@ public class adapter_row_voucher extends RecyclerView.Adapter<adapter_row_vouche
                 })
                 .setNegativeButton("Hapus",new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        deletedata(hasil.getId());
+                        deletedata(Integer.toString(hasil.getId()));
                         notifyItemRemoved(position);
                         result.remove(position);
                     }
@@ -99,7 +103,7 @@ public class adapter_row_voucher extends RecyclerView.Adapter<adapter_row_vouche
     }
     private void deletedata(String id){
         APInterface apiService = ApiClient.getClient().create(APInterface.class);
-        Call<Void> callDAO = apiService.deleteVoucher(id);
+        Call<Void> callDAO = apiService.deleteProduct(id);
         callDAO.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
@@ -112,11 +116,12 @@ public class adapter_row_voucher extends RecyclerView.Adapter<adapter_row_vouche
             }
         });
     }
-    private void startIntentEdit(VoucherDAO hasil){
-        Intent edit = new Intent(context, edit_voucher.class);
-        edit.putExtra("id",hasil.getId());
-        edit.putExtra("kode",hasil.getKode());
-        edit.putExtra("diskon",hasil.getDiskon());
+    private void startIntentEdit(ProdukDAO hasil){
+        Intent edit = new Intent(context, edit_produk.class);
+        edit.putExtra("id",Integer.toString(hasil.getId()));
+        edit.putExtra("nama_produk",hasil.getNama());
+        edit.putExtra("harga_produk",Integer.toString(hasil.getHarga()));
+        edit.putExtra("stock_produk",Integer.toString(hasil.getStock()));
         context.startActivity(edit);
     }
 }
