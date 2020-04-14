@@ -37,7 +37,7 @@ public class pop_up_produk_add extends AppCompatDialogFragment {
         stock = (EditText)view.findViewById(R.id.etAddStock);
         harga = (EditText)view.findViewById(R.id.etAddHarga);
 
-        builder.setView(view).setTitle("Add New Voucher").setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        builder.setView(view).setTitle("Add New Products").setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
