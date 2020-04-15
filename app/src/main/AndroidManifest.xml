@@ -16,7 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Transaksi.adapter_row_input_produk_transaksi"></activity>
+        <activity android:name=".Transaksi.adapter_pick_produk_transaksi"></activity>
+        <activity android:name=".Transaksi.view_pick_produk_transaksi" />
+        <activity android:name=".Transaksi.adapter_row_input_produk_transaksi" />
         <activity android:name=".kelola_laporan" />
         <activity android:name=".Transaksi.kelola_transaksi" />
         <activity android:name=".Voucher.kelola_voucher" />
