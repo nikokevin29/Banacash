@@ -15,7 +15,9 @@ import android.widget.Toast;
 
 import com.xbanana.banacash.DAO.ProdukDAO;
 import com.xbanana.banacash.R;
+import com.xbanana.banacash.Static.StaticPickProduct;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class adapter_pick_produk_transaksi extends RecyclerView.Adapter<adapter_pick_produk_transaksi.MyViewHolder> {
@@ -44,6 +46,12 @@ public class adapter_pick_produk_transaksi extends RecyclerView.Adapter<adapter_
         holder.parent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                for(int i = 0;i < result.size();i++){
+                    if (pro.getId() == result.get(i).getId()){
+                        ProdukDAO produk = new ProdukDAO(pro.getId(),pro.getNama(),pro.getStock(),pro.getHarga());
+                        StaticPickProduct.selectProduct.add(produk);
+                    }
+                }
                 Toast.makeText(context, "You Pick "+pro.getNama(), Toast.LENGTH_SHORT).show();
             }
         });

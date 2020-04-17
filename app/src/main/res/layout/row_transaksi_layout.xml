@@ -8,13 +8,18 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:id="@+id/transaksi_parent">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="66.6"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/nama"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nama" />
 
@@ -24,14 +29,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Jumlah" />
-
     </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/subtotal"
-        android:layout_marginTop="10dp"
-        android:text="Subtotal"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/subtotal"
+            android:layout_marginTop="10dp"
+            android:text="Subtotal"/>
+    </LinearLayout>
 
 </LinearLayout>
