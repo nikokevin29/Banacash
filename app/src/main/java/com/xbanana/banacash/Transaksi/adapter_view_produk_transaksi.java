@@ -51,7 +51,6 @@ public class adapter_view_produk_transaksi extends RecyclerView.Adapter<adapter_
                 holder.harga.setText(String.valueOf(response.body().getHarga()));
                 holder.jumlah.setText(String.valueOf(result.get(position).getJumlah()));
                 harga = response.body().getHarga();
-                context.subtotalFromRecycleTransaksi();
             }
             @Override
             public void onFailure(Call<ProdukDAO> call, Throwable t) { }

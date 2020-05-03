@@ -19,6 +19,7 @@ import com.xbanana.banacash.Static.StaticPickProduct;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -30,14 +31,12 @@ public class view_kelola_transaksi extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     EditText namaCust;
-    double tempsubtotal = 0;
+    int tempsubtotal = 0;
+    int id_tranaksi = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.kelola_transaksi);
-        if(StaticPickProduct.selectProduct==null){
-            StaticPickProduct.selectProduct = new ArrayList<>();
-        }
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view_transaksi);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(getApplicationContext());
@@ -54,18 +53,18 @@ public class view_kelola_transaksi extends AppCompatActivity {
             }
         });
         total = findViewById(R.id.valuetotalharga);
+        total.setText(Integer.toString(tempsubtotal));
         namaCust = findViewById(R.id.ETcustomername);
 
     }
     private void buatTransaksi(){
-
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDateTime now = LocalDateTime.now();
         String datenow = dtf.format(now);
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<TransactionDAO> callDAO = apiService.createTransaction(
                 namaCust.getText().toString(),
-                tempsubtotal,
+                Double.valueOf(tempsubtotal),
                 datenow,
                 "Kelvin");
         callDAO.enqueue(new Callback<TransactionDAO>() {
@@ -82,6 +81,24 @@ public class view_kelola_transaksi extends AppCompatActivity {
 
     }
 
+    private void getLastIdTransaksi(){
+        ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+        Call<List<TransactionDAO>> callDAO = apiInterface.showAllTransaction();
+        callDAO.enqueue(new Callback<List<TransactionDAO>>() {
+            @Override
+            public void onResponse(Call<List<TransactionDAO>> call, Response<List<TransactionDAO>> response) {
+                for (int i = 0;i<response.body().size();i++){
+                    id_tranaksi = response.body().get(i).getId();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<TransactionDAO>> call, Throwable t) {
+
+            }
+        });
+    }
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();
@@ -94,11 +111,13 @@ public class view_kelola_transaksi extends AppCompatActivity {
         mAdapter.notifyDataSetChanged();
         subtotalFromRecycleTransaksi();
     }
-    public void subtotalFromRecycleTransaksi(){
-
-        for(int i=0;i<StaticPickProduct.details.size();i++){
-            tempsubtotal =  tempsubtotal + StaticPickProduct.details.get(i).getSubtotal();
+    public void subtotalFromRecycleTransaksi() {
+        if (StaticPickProduct.details != null) {
+            for (int i = 0; i < StaticPickProduct.details.size(); i++) {
+                int temp = (int) Math.round(StaticPickProduct.details.get(i).getSubtotal());
+                tempsubtotal = tempsubtotal + temp;
+            }
+            total.setText(Integer.toString(tempsubtotal));
         }
-        total.setText(String.valueOf(tempsubtotal));
     }
 }

@@ -69,7 +69,7 @@ public class adapter_pick_produk_transaksi extends RecyclerView.Adapter<adapter_
                             Toast.makeText(context, "Empty Field", Toast.LENGTH_SHORT).show();
                         }else {
                             subtotal = pro.getHarga() * Double.parseDouble(jumlah);
-                            StaticPickProduct.details.add(new DetailTransaksiDAO(0, String.valueOf(pro.getId()),Integer.parseInt(jumlah), subtotal));
+                            StaticPickProduct.details.add( new DetailTransaksiDAO(0,pro.getId(),Integer.parseInt(jumlah),subtotal));
                         }
                     }
                 });
