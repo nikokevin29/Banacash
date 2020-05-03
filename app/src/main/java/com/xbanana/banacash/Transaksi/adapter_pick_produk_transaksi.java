@@ -21,10 +21,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class adapter_pick_produk_transaksi extends RecyclerView.Adapter<adapter_pick_produk_transaksi.MyViewHolder> {
-    private Context context;
+    private view_pick_produk_transaksi context;
     private List<ProdukDAO> result;
 
-    public adapter_pick_produk_transaksi(Context context, List<ProdukDAO> result){
+    public adapter_pick_produk_transaksi(view_pick_produk_transaksi context, List<ProdukDAO> result){
         this.context = context;
         this.result = result;
     }
@@ -75,12 +75,4 @@ public class adapter_pick_produk_transaksi extends RecyclerView.Adapter<adapter_
     }
 
 
-    private void startIntent(ProdukDAO hasil){
-        Intent edit = new Intent(context, kelola_transaksi.class);
-        edit.putExtra("id",Integer.toString(hasil.getId()));
-        edit.putExtra("nama_produk",hasil.getNama());
-        edit.putExtra("harga_produk",Integer.toString(hasil.getHarga()));
-        edit.putExtra("stock_produk",Integer.toString(hasil.getStock()));
-        context.startActivity(edit);
-    }
 }

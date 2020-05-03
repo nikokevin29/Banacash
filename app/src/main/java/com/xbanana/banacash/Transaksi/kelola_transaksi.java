@@ -32,8 +32,6 @@ public class kelola_transaksi extends AppCompatActivity {
             StaticPickProduct.selectProduct = new ArrayList<>();
         }
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view_transaksi);
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
@@ -50,5 +48,17 @@ public class kelola_transaksi extends AppCompatActivity {
         });
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        StaticPickProduct.selectProduct.clear();//menghapus isi Static Produk ketika menenak tombol back
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mAdapter.notifyDataSetChanged();
     }
 }

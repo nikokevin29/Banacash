@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -14,6 +15,7 @@ import com.xbanana.banacash.API.APInterface;
 import com.xbanana.banacash.API.ApiClient;
 import com.xbanana.banacash.DAO.ProdukDAO;
 import com.xbanana.banacash.R;
+import com.xbanana.banacash.Static.StaticPickProduct;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,8 +70,9 @@ public class view_pick_produk_transaksi extends AppCompatActivity {
             public void onFailure(Call<List<ProdukDAO>> call, Throwable t) {
                 progress.dismiss();
                 Toast.makeText(view_pick_produk_transaksi.this, "Bad Connection", Toast.LENGTH_SHORT).show();
-                System.out.println("BANANAS"+t.getMessage());
+                Log.d("Show Product", "onFailure: ");
             }
         });
     }
+
 }
