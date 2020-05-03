@@ -2,19 +2,17 @@ package com.xbanana.banacash.Voucher;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
-import com.xbanana.banacash.API.APInterface;
+import com.xbanana.banacash.API.ApiInterface;
 import com.xbanana.banacash.API.ApiClient;
 import com.xbanana.banacash.DAO.VoucherDAO;
 import com.xbanana.banacash.R;
@@ -53,13 +51,13 @@ public class pop_up_voucher_add extends AppCompatDialogFragment {
         return builder.create();
     }
     public void addData() {
-        APInterface apiService = ApiClient.getClient().create(APInterface.class);
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<List<VoucherDAO>> voucherDAO = apiService.showAllVoucher();
 
         voucherDAO.enqueue(new Callback<List<VoucherDAO>>() {
             @Override
             public void onResponse(Call<List<VoucherDAO>> call, Response<List<VoucherDAO>> response) {
-                APInterface apiService = ApiClient.getClient().create(APInterface.class);
+                ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
                 Call<VoucherDAO> callDAO = apiService.createVoucher(kode.getText().toString(), diskon.getText().toString());
                 callDAO.enqueue(new Callback<VoucherDAO>() {
                     @Override

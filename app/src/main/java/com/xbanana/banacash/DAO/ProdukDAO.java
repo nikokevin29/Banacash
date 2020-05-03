@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class ProdukDAO {
     @SerializedName("id")
-    int id;
+    String id;
     @SerializedName("nama")
     String nama;
     @SerializedName("stok")
@@ -36,15 +36,15 @@ public class ProdukDAO {
         this.harga = harga;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public ProdukDAO(int id, String nama, int stok, int harga) {
+    public ProdukDAO(String id, String nama, int stok, int harga) {
         this.id = id;
         this.nama = nama;
         this.stok = stok;

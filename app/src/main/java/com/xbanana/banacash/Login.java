@@ -5,13 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.xbanana.banacash.API.APInterface;
+import com.xbanana.banacash.API.ApiInterface;
 import com.xbanana.banacash.API.ApiClient;
 import com.xbanana.banacash.DAO.PinDAO;
 
@@ -43,7 +42,7 @@ public class Login extends AppCompatActivity {
                 progress.setCancelable(false);
                 progress.show();
 
-                APInterface apInterface = ApiClient.getClient().create(APInterface.class);
+                ApiInterface apInterface = ApiClient.getClient().create(ApiInterface.class);
                 Call<PinDAO> loginRequest = apInterface.loginRequest(
                   pin.getText().toString()
                 );

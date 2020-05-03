@@ -18,7 +18,7 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
-public interface APInterface {
+public interface ApiInterface {
 
 
   @GET("/api/searchPin/{kode_pin}")
@@ -26,11 +26,14 @@ public interface APInterface {
 
     @POST("api/createPin")
     @FormUrlEncoded
-    Call<PinDAO> createProduct (@Field("pin")int pin,
+    Call<PinDAO> createPin (@Field("pin")int pin,
                                 @Field("nama_pegawai")String nama_pegawai);
 
     @GET("api/showProduct/")
     Call<List<ProdukDAO>> showAllProduct();
+
+    @GET("/api/searchProduct/{id}")
+    Call<ProdukDAO> getbyidProduk(@Path("id")String id);
 
     @POST("api/createProduct")
     @FormUrlEncoded
@@ -54,38 +57,38 @@ public interface APInterface {
     @POST("api/createTransaction/")
     @FormUrlEncoded
     Call<TransactionDAO> createTransaction (@Field("nama_customer")String nama_customer,
-                                            @Field("total_harga")int total_harga,
+                                            @Field("total_harga")Double total_harga,
                                             @Field("tanggal")String tanggal,
                                             @Field("nama_pegawai")String nama_pegawai);
 
     @PUT("api/updateTransaction/{id}")
     @FormUrlEncoded
-    Call<TransactionDAO> updateTransaction(@Path("id") int id,
+    Call<TransactionDAO> updateTransaction(@Path("id") String id,
                                            @Field("nama_customer")String nama_customer,
-                                           @Field("total_harga")int total_harga,
+                                           @Field("total_harga")Double total_harga,
                                            @Field("tanggal")String tanggal,
                                            @Field("nama_pegawai")String nama_pegawai);
 
     @DELETE("api/deleteTransaction/{id}")
-    Call<Void> deleteTransaction(@Path("id") int id);
+    Call<Void> deleteTransaction(@Path("id") String id);
 
     @GET("api/showDetail/")
     Call<List<DetailTransaksiDAO>> showAllDetail();
 
     @POST("api/createDetail")
     @FormUrlEncoded
-    Call<DetailTransaksiDAO> createVoucher (@Field("id_transaksi")int id_transaksi,
-                                            @Field("id_produk")int id_produk,
+    Call<DetailTransaksiDAO> createDetail (@Field("id_transaksi")String id_transaksi,
+                                            @Field("id_produk")String id_produk,
                                             @Field("jumlah")int jumlah,
-                                            @Field("subtotal")int subtotal);
+                                            @Field("subtotal")Double subtotal);
 
     @PUT("api/updateDetail/{id}")
     @FormUrlEncoded
-    Call<DetailTransaksiDAO> updateDetail(@Path("id")int id,
-                                          @Field("id_transaksi")int id_transaksi,
-                                          @Field("id_produk")int id_produk,
+    Call<DetailTransaksiDAO> updateDetail(@Path("id")String id,
+                                          @Field("id_transaksi")String id_transaksi,
+                                          @Field("id_produk")String id_produk,
                                           @Field("jumlah")int jumlah,
-                                          @Field("subtotal")int subtotal);
+                                          @Field("subtotal")Double subtotal);
 
     @DELETE("api/deleteDetail/{id}")
     Call<Void> deleteDetail(@Path("id")int id);

@@ -11,14 +11,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.xbanana.banacash.API.APInterface;
+import com.xbanana.banacash.API.ApiInterface;
 import com.xbanana.banacash.API.ApiClient;
 import com.xbanana.banacash.DAO.ProdukDAO;
-import com.xbanana.banacash.DAO.VoucherDAO;
 import com.xbanana.banacash.R;
-import com.xbanana.banacash.Voucher.adapter_row_voucher;
-import com.xbanana.banacash.Voucher.kelola_voucher;
-import com.xbanana.banacash.Voucher.pop_up_voucher_add;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,7 +65,7 @@ public class kelola_produk extends AppCompatActivity {
         dialog.show(getSupportFragmentManager(),"Create Produk");
     }
     public void showData(){
-        APInterface apiService = ApiClient.getClient().create(APInterface.class);
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<List<ProdukDAO>> voucherDAOCall = apiService.showAllProduct();
         ProgressDialog progress = new ProgressDialog(this);
         progress.setMessage("Fetching data");

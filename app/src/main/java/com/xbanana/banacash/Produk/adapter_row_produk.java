@@ -15,13 +15,10 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.xbanana.banacash.API.APInterface;
+import com.xbanana.banacash.API.ApiInterface;
 import com.xbanana.banacash.API.ApiClient;
 import com.xbanana.banacash.DAO.ProdukDAO;
-import com.xbanana.banacash.DAO.VoucherDAO;
 import com.xbanana.banacash.R;
-import com.xbanana.banacash.Voucher.adapter_row_voucher;
-import com.xbanana.banacash.Voucher.edit_voucher;
 
 import java.util.List;
 
@@ -89,7 +86,7 @@ public class adapter_row_produk extends RecyclerView.Adapter<adapter_row_produk.
                 })
                 .setNegativeButton("Hapus",new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        deletedata(Integer.toString(hasil.getId()));
+                        deletedata(hasil.getId());
                         notifyItemRemoved(position);
                         result.remove(position);
                     }
@@ -102,7 +99,7 @@ public class adapter_row_produk extends RecyclerView.Adapter<adapter_row_produk.
                 }).show();
     }
     private void deletedata(String id){
-        APInterface apiService = ApiClient.getClient().create(APInterface.class);
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<Void> callDAO = apiService.deleteProduct(id);
         callDAO.enqueue(new Callback<Void>() {
             @Override
@@ -118,7 +115,7 @@ public class adapter_row_produk extends RecyclerView.Adapter<adapter_row_produk.
     }
     private void startIntentEdit(ProdukDAO hasil){
         Intent edit = new Intent(context, edit_produk.class);
-        edit.putExtra("id",Integer.toString(hasil.getId()));
+        edit.putExtra("id",hasil.getId());
         edit.putExtra("nama_produk",hasil.getNama());
         edit.putExtra("harga_produk",Integer.toString(hasil.getHarga()));
         edit.putExtra("stock_produk",Integer.toString(hasil.getStock()));

@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.xbanana.banacash.API.APInterface;
+import com.xbanana.banacash.API.ApiInterface;
 import com.xbanana.banacash.API.ApiClient;
 import com.xbanana.banacash.DAO.VoucherDAO;
 import com.xbanana.banacash.R;
@@ -67,7 +67,7 @@ public class kelola_voucher extends AppCompatActivity {
         dialog.show(getSupportFragmentManager(),"Create Voucher");
     }
     public void showData(){
-        APInterface apiService = ApiClient.getClient().create(APInterface.class);
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<List<VoucherDAO>> voucherDAOCall = apiService.showAllVoucher();
                 ProgressDialog progress = new ProgressDialog(this);
                 progress.setMessage("Fetching data");

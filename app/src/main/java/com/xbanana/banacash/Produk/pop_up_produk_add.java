@@ -12,13 +12,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
-import com.xbanana.banacash.API.APInterface;
+import com.xbanana.banacash.API.ApiInterface;
 import com.xbanana.banacash.API.ApiClient;
 import com.xbanana.banacash.DAO.ProdukDAO;
-import com.xbanana.banacash.DAO.VoucherDAO;
 import com.xbanana.banacash.R;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -53,7 +50,7 @@ public class pop_up_produk_add extends AppCompatDialogFragment {
         return builder.create();
     }
     public void addData() {
-        APInterface apiService = ApiClient.getClient().create(APInterface.class);
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<ProdukDAO> callDAO = apiService.createProduct(nama.getText().toString(), stock.getText().toString(),harga.getText().toString());
         callDAO.enqueue(new Callback<ProdukDAO>() {
             @Override

@@ -7,16 +7,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.xbanana.banacash.API.APInterface;
+import com.xbanana.banacash.API.ApiInterface;
 import com.xbanana.banacash.API.ApiClient;
 import com.xbanana.banacash.DAO.ProdukDAO;
-import com.xbanana.banacash.DAO.VoucherDAO;
 import com.xbanana.banacash.R;
-import com.xbanana.banacash.Voucher.edit_voucher;
-import com.xbanana.banacash.Voucher.kelola_voucher;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -46,7 +42,7 @@ public class edit_produk extends AppCompatActivity {
     }
 
     public void editData(){
-        APInterface apiService = ApiClient.getClient().create(APInterface.class);
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<ProdukDAO> callDAO = apiService.updateProduct(getIntent().getStringExtra("id"),nama.getText().toString(),stock.getText().toString(),harga.getText().toString());
 
         callDAO.enqueue(new Callback<ProdukDAO>() {

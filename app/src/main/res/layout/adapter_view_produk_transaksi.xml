@@ -20,12 +20,12 @@
             android:orientation="vertical">
             <TextView
                 android:id="@+id/tvNamaProduk"
-                android:text="Bakso Corona"
+                android:text="Nama Produk"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <TextView
                 android:id="@+id/JumlahProduk"
-                android:text="2"
+                android:text="Jumlah"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/tvHargaProduk"
-                android:text="20.000"
+                android:text="Harga"
                 android:paddingHorizontal="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>

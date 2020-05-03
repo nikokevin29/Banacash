@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/YellowKONT"
-    tools:context=".Transaksi.kelola_transaksi">
+    tools:context=".Transaksi.view_kelola_transaksi">
 
     <TextView
         android:id="@+id/txtmainmenu"
@@ -55,6 +55,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_transaksi"
             android:scrollbars="vertical"
+            android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/rounded_button">
@@ -68,7 +69,7 @@
         android:layout_width="278dp"
         android:layout_height="42dp"
         android:hint="Voucher"
-        android:paddingHorizontal="10dp"
+        android:paddingHorizontal="15dp"
         android:textAlignment="textStart"
         android:background="@drawable/rounded_button_100"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -78,8 +79,8 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         app:layout_constraintVertical_bias="0.132"/>
 
-    <Button
-        android:id="@+id/btncustomername"
+    <EditText
+        android:id="@+id/ETcustomername"
         android:layout_width="278dp"
         android:layout_height="42dp"
         android:hint="Customer Name"

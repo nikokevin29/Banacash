@@ -5,7 +5,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.xbanana.banacash.API.APInterface;
+import com.xbanana.banacash.API.ApiInterface;
 import com.xbanana.banacash.API.ApiClient;
 import com.xbanana.banacash.DAO.VoucherDAO;
 import com.xbanana.banacash.R;
@@ -98,7 +97,7 @@ public class adapter_row_voucher extends RecyclerView.Adapter<adapter_row_vouche
                 }).show();
     }
     private void deletedata(String id){
-        APInterface apiService = ApiClient.getClient().create(APInterface.class);
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<Void> callDAO = apiService.deleteVoucher(id);
         callDAO.enqueue(new Callback<Void>() {
             @Override

@@ -1,18 +1,16 @@
 package com.xbanana.banacash.Voucher;
 
-import android.app.*;
 import android.content.*;
 import android.os.Bundle;
 import android.view.*;
 import android.widget.*;
 import retrofit2.*;
-import androidx.annotation.NonNull;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDialogFragment;
 
 import com.xbanana.banacash.*;
-import com.xbanana.banacash.API.APInterface;
+import com.xbanana.banacash.API.ApiInterface;
 import com.xbanana.banacash.API.ApiClient;
 import com.xbanana.banacash.DAO.VoucherDAO;
 public class edit_voucher extends AppCompatActivity {
@@ -38,7 +36,7 @@ public class edit_voucher extends AppCompatActivity {
     }
 
     public void editData(){
-        APInterface apiService = ApiClient.getClient().create(APInterface.class);
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<VoucherDAO> callDAO = apiService.updateVoucher(getIntent().getStringExtra("id"),kode.getText().toString(),diskon.getText().toString());
 
         callDAO.enqueue(new Callback<VoucherDAO>() {
