@@ -5,6 +5,8 @@ import com.google.gson.annotations.SerializedName;
 public class TransactionDAO {
     @SerializedName("id")
     int id;
+    @SerializedName("id_transaksi")
+    int id_transaksi;
     @SerializedName("nama_customer")
     String nama_customer;
     @SerializedName("tanggal")
@@ -55,8 +57,9 @@ public class TransactionDAO {
         this.id = id;
     }
 
-    public TransactionDAO(int id, String nama_customer, String tangal, String nama_pegawai, int total_harga) {
+    public TransactionDAO(int id, int id_transaksi, String nama_customer, String tangal, String nama_pegawai, int total_harga) {
         this.id = id;
+        this.id_transaksi = id_transaksi;
         this.nama_customer = nama_customer;
         this.tangal = tangal;
         this.nama_pegawai = nama_pegawai;

@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -32,7 +34,9 @@ public class view_kelola_transaksi extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     EditText namaCust;
     int tempsubtotal = 0;
-    int id_tranaksi = 0;
+    int incr = 1;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +45,10 @@ public class view_kelola_transaksi extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
+
+
+        SharedPreferences id_transaksi = getSharedPreferences("idTransaksi", Context.MODE_PRIVATE);
+        incr = id_transaksi.getInt("incr", 1);
 
         mAdapter = new adapter_view_produk_transaksi(view_kelola_transaksi.this, StaticPickProduct.details);
         recyclerView.setAdapter(mAdapter);
@@ -63,6 +71,7 @@ public class view_kelola_transaksi extends AppCompatActivity {
         String datenow = dtf.format(now);
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<TransactionDAO> callDAO = apiService.createTransaction(
+                incr,
                 namaCust.getText().toString(),
                 Double.valueOf(tempsubtotal),
                 datenow,
@@ -70,33 +79,21 @@ public class view_kelola_transaksi extends AppCompatActivity {
         callDAO.enqueue(new Callback<TransactionDAO>() {
             @Override
             public void onResponse(Call<TransactionDAO> call, Response<TransactionDAO> response) {
-                    
-            }
+                
 
+
+                SharedPreferences id_transaksi = getSharedPreferences("idTransaksi", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = id_transaksi.edit();
+                incr = incr +1;
+                editor.putInt("incr", incr);
+                editor.commit();
+            }
             @Override
             public void onFailure(Call<TransactionDAO> call, Throwable t) {
 
             }
         });
 
-    }
-
-    private void getLastIdTransaksi(){
-        ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        Call<List<TransactionDAO>> callDAO = apiInterface.showAllTransaction();
-        callDAO.enqueue(new Callback<List<TransactionDAO>>() {
-            @Override
-            public void onResponse(Call<List<TransactionDAO>> call, Response<List<TransactionDAO>> response) {
-                for (int i = 0;i<response.body().size();i++){
-                    id_tranaksi = response.body().get(i).getId();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<TransactionDAO>> call, Throwable t) {
-
-            }
-        });
     }
 
     @Override

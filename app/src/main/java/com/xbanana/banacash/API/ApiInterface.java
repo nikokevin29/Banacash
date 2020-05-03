@@ -56,7 +56,8 @@ public interface ApiInterface {
 
     @POST("api/createTransaction/")
     @FormUrlEncoded
-    Call<TransactionDAO> createTransaction (@Field("nama_customer")String nama_customer,
+    Call<TransactionDAO> createTransaction (@Field("id_transaksi")int id_transaksi,
+                                            @Field("nama_customer")String nama_customer,
                                             @Field("total_harga")Double total_harga,
                                             @Field("tanggal")String tanggal,
                                             @Field("nama_pegawai")String nama_pegawai);
