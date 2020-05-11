@@ -98,6 +98,7 @@
         android:id="@+id/txttotalharga"
         android:layout_width="50dp"
         android:layout_height="25dp"
+        android:layout_marginBottom="96dp"
         android:background="@drawable/button_nofill"
         android:text="Total :"
         android:textAlignment="textStart"
@@ -107,13 +108,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.182"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btncustomername"
+        app:layout_constraintTop_toBottomOf="@+id/ETcustomername"
         app:layout_constraintVertical_bias="0.114" />
 
     <TextView
         android:id="@+id/valuetotalharga"
         android:layout_width="258dp"
         android:layout_height="25dp"
+        android:layout_marginBottom="96dp"
         android:text="Total Harga"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -121,10 +123,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.567"
         app:layout_constraintStart_toEndOf="@+id/txttotalharga"
-        app:layout_constraintTop_toBottomOf="@+id/btncustomername"
+        app:layout_constraintTop_toBottomOf="@+id/ETcustomername"
         app:layout_constraintVertical_bias="0.113" />
 
     <Button
+        android:id="@+id/ButtonCreate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_button"

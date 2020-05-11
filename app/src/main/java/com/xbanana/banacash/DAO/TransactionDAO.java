@@ -12,7 +12,7 @@ public class TransactionDAO {
     @SerializedName("nama_pegawai")
     String nama_pegawai;
     @SerializedName("total_harga")
-    int total_harga;
+    double total_harga;
 
 
     public String getNama_customer() {
@@ -39,11 +39,11 @@ public class TransactionDAO {
         this.nama_pegawai = nama_pegawai;
     }
 
-    public int getTotal_harga() {
+    public double getTotal_harga() {
         return total_harga;
     }
 
-    public void setTotal_harga(int total_harga) {
+    public void setTotal_harga(double total_harga) {
         this.total_harga = total_harga;
     }
 
@@ -55,7 +55,7 @@ public class TransactionDAO {
         this.id = id;
     }
 
-    public TransactionDAO(int id, String nama_customer, String tangal, String nama_pegawai, int total_harga) {
+    public TransactionDAO(int id, String nama_customer, String tangal, String nama_pegawai, double total_harga) {
         this.id = id;
         this.nama_customer = nama_customer;
         this.tangal = tangal;
