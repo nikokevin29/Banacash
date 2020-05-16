@@ -58,14 +58,14 @@ public interface ApiInterface {
     @FormUrlEncoded
     Call<TransactionDAO> createTransaction (@Field("id_transaksi")int id_transaksi,
                                             @Field("nama_customer") String nama_customer,
-                                            @Field("total_harga")Double total_harga,
+                                            @Field("total_harga")double total_harga,
                                             @Field("tanggal")String tanggal,
                                             @Field("nama_pegawai")String nama_pegawai);
     @PUT("api/updateTransaction/{id}")
     @FormUrlEncoded
     Call<TransactionDAO> updateTransaction(@Path("id") String id,
                                            @Field("nama_customer")String nama_customer,
-                                           @Field("total_harga")Double total_harga,
+                                           @Field("total_harga")double total_harga,
                                            @Field("tanggal")String tanggal,
                                            @Field("nama_pegawai")String nama_pegawai);
 
