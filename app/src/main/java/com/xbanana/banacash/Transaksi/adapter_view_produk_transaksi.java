@@ -44,7 +44,7 @@ public class adapter_view_produk_transaksi extends RecyclerView.Adapter<adapter_
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        apiService.getbyidProduk(result.get(position).getId_produk()).enqueue(new Callback<ProdukDAO>() {
+        apiService.getbyidProduk(String.valueOf(result.get(position).getId_produk())).enqueue(new Callback<ProdukDAO>() {
             @Override
             public void onResponse(Call<ProdukDAO> call, Response<ProdukDAO> response) {
                 holder.nama.setText(response.body().getNama());

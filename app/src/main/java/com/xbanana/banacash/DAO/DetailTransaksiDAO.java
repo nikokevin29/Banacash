@@ -6,7 +6,7 @@ public class DetailTransaksiDAO {
     @SerializedName("id_transaksi")
     int id_transaksi;
     @SerializedName("id_produk")
-    String id_produk;
+    int id_produk;
     @SerializedName("jumlah_terjual")
     int jumlah_terjual;
     @SerializedName("subtotal")
@@ -20,11 +20,11 @@ public class DetailTransaksiDAO {
         this.id_transaksi = id_transaksi;
     }
 
-    public String getId_produk() {
+    public int getId_produk() {
         return id_produk;
     }
 
-    public void setId_produk(String id_produk) {
+    public void setId_produk(int id_produk) {
         this.id_produk = id_produk;
     }
 
@@ -44,7 +44,7 @@ public class DetailTransaksiDAO {
         this.subtotal = subtotal;
     }
 
-    public DetailTransaksiDAO(int id_transaksi, String id_produk, int jumlah_terjual, Double subtotal) {
+    public DetailTransaksiDAO(int id_transaksi, int id_produk, int jumlah_terjual, Double subtotal) {
         this.id_transaksi = id_transaksi;
         this.id_produk = id_produk;
         this.jumlah_terjual = jumlah_terjual;

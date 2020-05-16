@@ -54,7 +54,7 @@ public interface ApiInterface {
     @GET("api/showTransaction/")
     Call<List<TransactionDAO>> showAllTransaction();
 
-    @POST("api/createTransaction/")
+    @POST("api/createTransaction")
     @FormUrlEncoded
     Call<TransactionDAO> createTransaction (@Field("id_transaksi")int id_transaksi,
                                             @Field("nama_customer") String nama_customer,
@@ -77,10 +77,10 @@ public interface ApiInterface {
 
     @POST("api/createDetail")
     @FormUrlEncoded
-    Call<DetailTransaksiDAO> createDetail (@Field("id_transaksi")String id_transaksi,
-                                            @Field("id_produk")String id_produk,
+    Call<DetailTransaksiDAO> createDetail (@Field("id_transaksi")int id_transaksi,
+                                            @Field("id_produk")int id_produk,
                                             @Field("jumlah")int jumlah,
-                                            @Field("subtotal")Double subtotal);
+                                            @Field("subtotal")double subtotal);
 
     @PUT("api/updateDetail/{id}")
     @FormUrlEncoded
@@ -126,4 +126,6 @@ public interface ApiInterface {
     @DELETE("api/deleteVoucher/{id}")
     Call<Void> deleteVoucher(@Path("id") String id);
 
+    @GET("api/getlastid")
+    Call<TransactionDAO> getLastid();
 }

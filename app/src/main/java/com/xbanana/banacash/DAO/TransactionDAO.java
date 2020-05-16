@@ -3,6 +3,8 @@ package com.xbanana.banacash.DAO;
 import com.google.gson.annotations.SerializedName;
 
 public class TransactionDAO {
+    @SerializedName("id")
+    int id;
     @SerializedName("id_transaksi")
     int id_transaksi;
     @SerializedName("nama_customer")
@@ -53,6 +55,14 @@ public class TransactionDAO {
 
     public void setId(int id_transaksi) {
         this.id_transaksi = id_transaksi;
+    }
+
+    public int getIds() {
+        return id;
+    }
+
+    public void setIds(int id) {
+        this.id = id;
     }
 
     public TransactionDAO(int id_transaksi, String nama_customer, String tanggal, String nama_pegawai, double total_harga) {
