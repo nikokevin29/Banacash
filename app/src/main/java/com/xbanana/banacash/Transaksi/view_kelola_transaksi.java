@@ -19,12 +19,14 @@ import com.xbanana.banacash.API.ApiClient;
 import com.xbanana.banacash.API.ApiInterface;
 import com.xbanana.banacash.DAO.DetailTransaksiDAO;
 import com.xbanana.banacash.DAO.TransactionDAO;
+import com.xbanana.banacash.DAO.VoucherDAO;
 import com.xbanana.banacash.R;
 import com.xbanana.banacash.Static.StaticPickProduct;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -32,7 +34,7 @@ import retrofit2.Response;
 
 public class view_kelola_transaksi extends AppCompatActivity {
     TextView tvBtnPickProduct,total;
-    Button submit_create;
+    Button submit_create,btnCheckVoucher;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
@@ -40,6 +42,7 @@ public class view_kelola_transaksi extends AppCompatActivity {
     double tempsubtotal = 0;
     int incr = 1;
     int lastid = 0;
+    String getVoucher = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,9 +75,40 @@ public class view_kelola_transaksi extends AppCompatActivity {
         total = findViewById(R.id.valuetotalharga);
         namaCust = findViewById(R.id.ETcustomername);
         etVoucher = findViewById(R.id.etextvoucher);
+        btnCheckVoucher = findViewById(R.id.cekVoucher);
+        btnCheckVoucher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cekVoucher();
+            }
+        });
+    }
+    private  void cekVoucher(){
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        Call<List<VoucherDAO>> callDAO  = apiService.showAllVoucher();
+        callDAO.enqueue(new Callback<List<VoucherDAO>>() {
+            @Override
+            public void onResponse(Call<List<VoucherDAO>> call, Response<List<VoucherDAO>> response) {
+                for(int i = 0; i<response.body().size(); i++){
+                    if(etVoucher.getText().toString().equals(response.body().get(i).getKode())){
+                        getVoucher = response.body().get(i).getKode();
+                        etVoucher.setText(getVoucher);
+                        double realtot = tempsubtotal - response.body().get(i).getDiskon();
+                        total.setText(String.valueOf(realtot));
+                        Toast.makeText(view_kelola_transaksi.this, "Voucher Applied", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                if(getVoucher == null){
+                    Toast.makeText(view_kelola_transaksi.this, "Voucher Code Not Found", Toast.LENGTH_SHORT).show();
+                }
+            }
+            @Override
+            public void onFailure(Call<List<VoucherDAO>> call, Throwable t) {
+                System.out.println("Failed get all Voucher");
+            }
+        });
     }
     private void buatTransaksi(){
-        int init0 = 0;
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         LocalDateTime now = LocalDateTime.now();
         String datenow = dtf.format(now);
@@ -100,7 +134,7 @@ public class view_kelola_transaksi extends AppCompatActivity {
             @Override
             public void onFailure(Call<TransactionDAO> call, Throwable t) {
                 System.out.println("Data Stored but  "+t.getMessage());
-                Toast.makeText(view_kelola_transaksi.this, "Sukses Header", Toast.LENGTH_SHORT).show();
+                Toast.makeText(view_kelola_transaksi.this, "Header Transaksi Created", Toast.LENGTH_SHORT).show();
                 buatDetil();
             }
         });

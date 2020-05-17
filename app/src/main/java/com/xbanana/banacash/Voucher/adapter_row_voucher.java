@@ -47,7 +47,7 @@ public class adapter_row_voucher extends RecyclerView.Adapter<adapter_row_vouche
     public void onBindViewHolder(@NonNull adapter_row_voucher.MyViewHolder holder, int position) {
         final VoucherDAO voucherDAO = result.get(position);
         holder.kode.setText(voucherDAO.getKode());
-        holder.diskon.setText(voucherDAO.getDiskon());
+        holder.diskon.setText(String.valueOf(voucherDAO.getDiskon()));
         holder.parent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
