@@ -37,31 +37,37 @@ public class Login extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                progress.setMessage("login process. . .");
-                progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-                progress.setCancelable(false);
-                progress.show();
+                if(pin.getText().toString().length()!= 0)
+                {
+                    progress.setMessage("login process. . .");
+                    progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                    progress.setCancelable(false);
+                    progress.show();
 
-                ApiInterface apInterface = ApiClient.getClient().create(ApiInterface.class);
-                Call<PinDAO> loginRequest = apInterface.loginRequest(
-                  pin.getText().toString()
-                );
-                loginRequest.enqueue(new Callback<PinDAO>() {
-                    @Override
-                    public void onResponse(Call<PinDAO> call, Response<PinDAO> response) {
-                        Intent i = new Intent(Login.this,MainMenu.class);
-                        startActivity(i);
-                        finish();
-                        progress.dismiss();
-                        Toast.makeText(Login.this, "Login Success", Toast.LENGTH_SHORT).show();
-                    }
+                    ApiInterface apInterface = ApiClient.getClient().create(ApiInterface.class);
+                    Call<PinDAO> loginRequest = apInterface.loginRequest(
+                            pin.getText().toString()
+                    );
+                    loginRequest.enqueue(new Callback<PinDAO>() {
+                        @Override
+                        public void onResponse(Call<PinDAO> call, Response<PinDAO> response) {
+                            Intent i = new Intent(Login.this,MainMenu.class);
+                            startActivity(i);
+                            finish();
+                            progress.dismiss();
+                            Toast.makeText(Login.this, "Login Success", Toast.LENGTH_SHORT).show();
+                        }
 
-                    @Override
-                    public void onFailure(Call<PinDAO> call, Throwable t) {
-                        progress.dismiss();
-                        Toast.makeText(Login.this, "Login Failed", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                        @Override
+                        public void onFailure(Call<PinDAO> call, Throwable t) {
+                            progress.dismiss();
+                            Toast.makeText(Login.this, "Login Failed", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                } else {
+                    Toast.makeText(Login.this, "Login Failed", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
     }
