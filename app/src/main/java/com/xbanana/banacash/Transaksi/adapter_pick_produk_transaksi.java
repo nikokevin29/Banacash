@@ -21,6 +21,7 @@ import com.xbanana.banacash.DAO.DetailTransaksiDAO;
 import com.xbanana.banacash.DAO.ProdukDAO;
 import com.xbanana.banacash.R;
 import com.xbanana.banacash.Static.StaticPickProduct;
+import com.xbanana.banacash.Static.TempPickProduk;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,7 +70,7 @@ public class adapter_pick_produk_transaksi extends RecyclerView.Adapter<adapter_
                             Toast.makeText(context, "Empty Field", Toast.LENGTH_SHORT).show();
                         }else {
                             subtotal = pro.getHarga() * Double.parseDouble(jumlah);
-                            StaticPickProduct.details.add( new DetailTransaksiDAO(0,Integer.parseInt(pro.getId()),Integer.parseInt(jumlah),subtotal));
+                            StaticPickProduct.details.add( new TempPickProduk(0,Integer.parseInt(pro.getId()),Integer.parseInt(jumlah),subtotal));
                         }
                     }
                 });

@@ -8,6 +8,6 @@ import java.util.List;
 
 public class StaticPickProduct {
     public static List<ProdukDAO> selectProduct;
-    public static List<DetailTransaksiDAO> details = new ArrayList<DetailTransaksiDAO>();
+    public static List<TempPickProduk> details = new ArrayList<TempPickProduk>();
     public static Double totals;
 }

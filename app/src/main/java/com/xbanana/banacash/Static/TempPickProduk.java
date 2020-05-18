@@ -1,10 +1,8 @@
-package com.xbanana.banacash.DAO;
+package com.xbanana.banacash.Static;
 
 import com.google.gson.annotations.SerializedName;
 
-public class DetailTransaksiDAO {
-    @SerializedName("id")
-    int id;
+public class TempPickProduk {
     @SerializedName("id_transaksi")
     int id_transaksi;
     @SerializedName("id_produk")
@@ -13,14 +11,6 @@ public class DetailTransaksiDAO {
     int jumlah;
     @SerializedName("subtotal")
     Double subtotal;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public int getId_transaksi() {
         return id_transaksi;
@@ -54,8 +44,7 @@ public class DetailTransaksiDAO {
         this.subtotal = subtotal;
     }
 
-    public DetailTransaksiDAO(int id, int id_transaksi, int id_produk, int jumlah, Double subtotal) {
-        this.id = id;
+    public TempPickProduk(int id_transaksi, int id_produk, int jumlah, Double subtotal) {
         this.id_transaksi = id_transaksi;
         this.id_produk = id_produk;
         this.jumlah = jumlah;

@@ -2,24 +2,19 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_margin="8dp"
     android:orientation="horizontal"
-    android:weightSum="100">
+    android:weightSum="100"
+    android:id="@+id/parentLaporan">
 
     <TextView
         android:id="@+id/nama_produk"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="33.3"
-        android:text="Nama Produk" />
+        android:text="Nama Customer" />
 
-    <TextView
-        android:id="@+id/jumlah_terjual"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="33.3"
-        android:text="Jumlah Terjual" />
 
     <TextView
         android:layout_width="match_parent"

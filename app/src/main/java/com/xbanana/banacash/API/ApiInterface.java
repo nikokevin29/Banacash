@@ -75,6 +75,9 @@ public interface ApiInterface {
     @GET("api/showDetail/")
     Call<List<DetailTransaksiDAO>> showAllDetail();
 
+    @GET("api/getdetailbyid/{id_transaksi}")
+    Call<List<DetailTransaksiDAO>> showDetailById(@Path("id_transaksi")int id);
+
     @POST("api/createDetail")
     @FormUrlEncoded
     Call<DetailTransaksiDAO> createDetail (@Field("id_transaksi")int id_transaksi,

@@ -16,6 +16,7 @@ import com.xbanana.banacash.DAO.DetailTransaksiDAO;
 import com.xbanana.banacash.DAO.ProdukDAO;
 import com.xbanana.banacash.R;
 import com.xbanana.banacash.Static.StaticPickProduct;
+import com.xbanana.banacash.Static.TempPickProduk;
 
 import java.util.List;
 
@@ -25,9 +26,9 @@ import retrofit2.Response;
 
 public class adapter_view_produk_transaksi extends RecyclerView.Adapter<adapter_view_produk_transaksi.MyViewHolder> {
     private view_kelola_transaksi context;
-    private List<DetailTransaksiDAO> result;
+    private List<TempPickProduk> result;
     public double harga;
-    public adapter_view_produk_transaksi(view_kelola_transaksi context, List<DetailTransaksiDAO> result){
+    public adapter_view_produk_transaksi(view_kelola_transaksi context, List<TempPickProduk> result){
         this.context = context;
         this.result = result;
     }

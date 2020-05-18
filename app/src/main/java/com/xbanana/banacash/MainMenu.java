@@ -26,6 +26,13 @@ public class MainMenu extends AppCompatActivity {
     }
 
     public void initImageButton(){
+        kelola_laporan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainMenu.this, com.xbanana.banacash.Laporan.kelola_laporan.class);
+                startActivity(i);
+            }
+        });
         kelola_produk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

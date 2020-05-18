@@ -16,24 +16,52 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="4dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nama Produk : "/>
         <TextView
             android:id="@+id/nama_produk"
             android:padding="2dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nama" />
+        </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jumlah Produk : "/>
         <TextView
             android:id="@+id/stock_produk"
             android:padding="2dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Stock" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Subtotal : "/>
         <TextView
             android:id="@+id/harga_produk"
             android:padding="2dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Harga" />
+    </LinearLayout>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
