@@ -10,8 +10,6 @@
         android:layout_height="match_parent"
         android:background="@color/YellowKONT"
         tools:context=".Laporan.kelola_laporan">
-
-
         <TextView
             android:id="@+id/txtreport"
             android:layout_width="93dp"
@@ -63,6 +61,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:weightSum="100"
+            android:padding="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.492"
@@ -76,7 +75,6 @@
                 android:padding="10dp"
                 android:background="@drawable/rounded_button">
             </androidx.recyclerview.widget.RecyclerView>
-
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

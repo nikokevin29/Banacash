@@ -15,15 +15,15 @@
         android:textColor="#FFFF"
         android:textSize="40dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="150dp"/>
+        android:layout_marginTop="70dp"/>
 
     <LinearLayout
         android:id="@+id/atas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/titlemainmenu"
-        android:layout_marginTop="36dp"
-        android:paddingHorizontal="30dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center_horizontal"
         android:weightSum="2">
         <LinearLayout
             android:layout_width="wrap_content"
@@ -69,7 +69,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/atas"
-        android:paddingHorizontal="30dp"
+        android:gravity="center_horizontal"
         android:weightSum="2">
         <LinearLayout
             android:layout_width="wrap_content"
