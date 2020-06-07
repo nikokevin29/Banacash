@@ -93,9 +93,11 @@ public class view_kelola_transaksi extends AppCompatActivity {
                     if(etVoucher.getText().toString().toLowerCase().equals(response.body().get(i).getKode().toLowerCase())){
                         getVoucher = response.body().get(i).getKode().toLowerCase();
                         etVoucher.setText(getVoucher);
-                        double realtot = tempsubtotal * (response.body().get(i).getDiskon()/100);
+                        double valuedisc = (response.body().get(i).getDiskon()/100) * tempsubtotal ;//get total
+                        double realtot = tempsubtotal - valuedisc;
                         total.setText(String.valueOf(realtot));
-                        Toast.makeText(view_kelola_transaksi.this, "Voucher Applied", Toast.LENGTH_SHORT).show();
+                        int discDisplay = (int) response.body().get(i).getDiskon();
+                        Toast.makeText(view_kelola_transaksi.this, "Voucher Applied "+discDisplay+"%", Toast.LENGTH_SHORT).show();
                     }
                 }
                 if(getVoucher == null){
