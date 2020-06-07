@@ -90,10 +90,10 @@ public class view_kelola_transaksi extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<VoucherDAO>> call, Response<List<VoucherDAO>> response) {
                 for(int i = 0; i<response.body().size(); i++){
-                    if(etVoucher.getText().toString().equals(response.body().get(i).getKode())){
-                        getVoucher = response.body().get(i).getKode();
+                    if(etVoucher.getText().toString().toLowerCase().equals(response.body().get(i).getKode().toLowerCase())){
+                        getVoucher = response.body().get(i).getKode().toLowerCase();
                         etVoucher.setText(getVoucher);
-                        double realtot = tempsubtotal - response.body().get(i).getDiskon();
+                        double realtot = tempsubtotal * (response.body().get(i).getDiskon()/100);
                         total.setText(String.valueOf(realtot));
                         Toast.makeText(view_kelola_transaksi.this, "Voucher Applied", Toast.LENGTH_SHORT).show();
                     }

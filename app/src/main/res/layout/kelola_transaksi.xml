@@ -68,24 +68,42 @@
         android:orientation="vertical">
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <EditText
-                android:id="@+id/etextvoucher"
-                android:layout_width="170dp"
-                android:layout_height="45dp"
-                android:hint="Voucher"
-                android:background="@drawable/rounded_button_100"
-                android:layout_margin="5dp"
-                android:paddingHorizontal="10dp"/>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <EditText
+                    android:id="@+id/etextvoucher"
+                    android:layout_width="170dp"
+                    android:layout_height="45dp"
+                    android:hint="Voucher Code"
+                    android:background="@drawable/rounded_button_100"
+                    android:layout_margin="5dp"
+                    android:paddingHorizontal="10dp"
+                    android:inputType="text">
+                    <requestFocus/>
+                </EditText>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|right"
+                    android:layout_marginEnd="20dp"
+                    android:text="%"
+                    android:textSize="24dp"
+                    android:textColor="#FFFF"/><!--invinsible %-->
+            </FrameLayout>
             <Button
                 android:id="@+id/cekVoucher"
                 android:layout_width="wrap_content"
-                android:layout_height="43dp"
+                android:layout_height="45dp"
                 android:background="@drawable/rounded_button"
                 android:text="CHECK"
                 android:textColor="#FFFF"
                 android:textStyle="bold"
-                android:textSize="10dp"/>
+                android:textSize="10dp"
+                android:layout_margin="5dp"/>
         </LinearLayout>
 
         <EditText
@@ -95,7 +113,8 @@
             android:background="@drawable/rounded_button_100"
             android:hint="Customer Name"
             android:paddingHorizontal="10dp"
-            android:textAlignment="textStart" />
+            android:textAlignment="textStart"
+            android:inputType="text"/>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -136,7 +155,7 @@
         android:textSize="16sp"
         android:layout_margin="20dp"
         android:padding="5dp"
-        android:layout_alignParentBottom="true"/>
+        android:layout_below="@+id/linearET2"/>
 
 
 

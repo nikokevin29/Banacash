@@ -24,13 +24,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nama Produk : "/>
+            android:text="Name : "/>
         <TextView
             android:id="@+id/nama_produk"
             android:padding="2dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nama" />
+            android:text="Pepsodent Pembuat Gigi keropos" />
         </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"
@@ -39,13 +39,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Jumlah Produk : "/>
+            android:text="Stock : "/>
         <TextView
             android:id="@+id/stock_produk"
             android:padding="2dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Stock" />
+            android:text="100" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"
@@ -54,13 +54,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Subtotal : "/>
+            android:text="Price : "/>
         <TextView
             android:id="@+id/harga_produk"
             android:padding="2dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Harga" />
+            android:text="50000" />
     </LinearLayout>
     </LinearLayout>
 
